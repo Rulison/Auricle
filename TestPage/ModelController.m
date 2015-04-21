@@ -43,8 +43,8 @@
     }
 
     // Create a new view controller and pass suitable data.
-    DataViewController *dataViewController = [storyboard instantiateViewControllerWithIdentifier:@"DataViewController"];
-    //DataViewController *dataViewController = [storyboard instantiateViewControllerWithIdentifier:@"TestViewController"];
+    //DataViewController *dataViewController = [storyboard instantiateViewControllerWithIdentifier:@"DataViewController"];
+    DataViewController *dataViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
 
     dataViewController.dataObject = self.pageData[index];
     return dataViewController;

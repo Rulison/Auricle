@@ -6,13 +6,14 @@
 //  Copyright (c) 2015 MAC Book. All rights reserved.
 //
 
-#import "TestViewController.h"
+#import "MainMenuViewController.h"
+@import AVFoundation;
 
-@interface TestViewController ()
+@interface MainMenuViewController ()
 
 @end
 
-@implementation TestViewController
+@implementation MainMenuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,7 +28,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     //self.dataLabel.text = [self.dataObject description];
-    self.dataLabel.text = @"Hello";
+    self.titleLabel.text = @"AURICLE";
+    [self.chordsButton setTitle:@"Chords" forState: UIControlStateNormal];
+    [self.libraryButton setTitle:@"Library" forState: UIControlStateNormal];
+    [self.intervalsButton setTitle:@"Intervals" forState: UIControlStateNormal];
+    [self.optionsButton setTitle:@"Options" forState: UIControlStateNormal];
+    //AVAudioPlayer *player;
 }
 
 @end
