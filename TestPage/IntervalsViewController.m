@@ -18,6 +18,7 @@
 @implementation IntervalsViewController
 
 @synthesize score;
+@synthesize problemNumber;
 
 @synthesize correctAnswer;
 
@@ -40,6 +41,7 @@
 @synthesize octaveButton;
 
 @synthesize hasScoreAlreadyBeenSet;
+@synthesize hasNumberAlreadyBeenSet;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -62,6 +64,13 @@
     }
     else {
         self.scoreLabel.text = [NSString stringWithFormat:@"%ld", score];
+    }
+    if(!hasNumberAlreadyBeenSet) {
+        problemNumber = 0;
+        self.problemNumberLabel.text = @"0/10";
+    }
+    else {
+        self.problemNumberLabel.text = [NSString stringWithFormat:@"%ld/10", problemNumber];
     }
     
     //randomly select base note
@@ -86,42 +95,25 @@
     self.scoreLabel.text = [NSString stringWithFormat:@"%ld", score];
 }
 
--(IBAction)touchUpInside:(UIButton*)sender {
-    if(sender == backButton) {
-        UIStoryboard *storyboard = self.storyboard;
-        MainMenuViewController *main = [storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
-        [self presentViewController:main animated:YES completion:nil];
-        //[self dismissModalViewControllerAnimated:YES];
-    }
-    else if(sender == playButton) {
-        //play audio
-        
-        //start lowering score
-    }
-    else if(sender == minorSecondButton) {
-        if([correctAnswer  isEqual: @"MinorSecond"]) {
-            [self choseCorrectly:minorSecondButton];
-        }
-        else {
-            [self choseWrongly:minorSecondButton];
-        }
-    }
-    else if(sender == majorSecondButton) {
-        /*if([correctAnswer  isEqual: @"MajorSecond"]) {
-            [self choseCorrectly:majorSecondButton];
-        }
-        else {
-            [self choseWrongly:majorSecondButton];
-        }*/
-    }
-}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"NextProblemSegue"]){
         [_audioPlayer stop];
-        IntervalsViewController *controller = (IntervalsViewController *)segue.destinationViewController;
-        controller.score = score;
-        controller.hasScoreAlreadyBeenSet = YES;
+        if(problemNumber == 10) {
+            MainMenuViewController *controller = (MainMenuViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
+        }
+        else {
+            IntervalsViewController *controller = (IntervalsViewController *)segue.destinationViewController;
+            controller.score = score;
+            controller.hasScoreAlreadyBeenSet = YES;
+            controller.problemNumber = problemNumber + 1;
+            controller.hasNumberAlreadyBeenSet = YES;
+        }
+    }
+    else if([segue.identifier isEqualToString:@"BackToMainMenuSegue"]) {
+        [_audioPlayer stop];
+        MainMenuViewController *controller = (MainMenuViewController *)segue.destinationViewController;
+        
     }
 }
 

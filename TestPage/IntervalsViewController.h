@@ -34,10 +34,12 @@
 @property (strong, nonatomic) id dataObject;
 
 @property (nonatomic, assign) NSInteger score;
+@property (nonatomic, assign) NSInteger problemNumber;
 
 @property (nonatomic, assign) NSString* correctAnswer;
 
 @property (nonatomic, assign) bool hasScoreAlreadyBeenSet;
+@property (nonatomic, assign) bool hasNumberAlreadyBeenSet;
 
 @end
 

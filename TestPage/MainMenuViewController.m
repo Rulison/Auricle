@@ -43,6 +43,16 @@
     //AVAudioPlayer *player;
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"IntervalsSegue"]){
+        IntervalsViewController *controller = (IntervalsViewController *)segue.destinationViewController;
+        controller.score = 1000;
+        controller.problemNumber = 1;
+        controller.hasScoreAlreadyBeenSet = YES;
+        controller.hasNumberAlreadyBeenSet = YES;
+    }
+}
+
 -(IBAction)touchUpInside:(UIButton*)sender {
     if(sender == chordsButton) {
         NSLog(@"Chords");

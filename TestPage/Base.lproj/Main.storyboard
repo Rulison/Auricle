@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="PxF-Ax-wPy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="PxF-Ax-wPy">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--Data View Controller-->
@@ -89,6 +89,7 @@
                                 </state>
                                 <connections>
                                     <action selector="touchUpInside:" destination="oY0-ik-uAY" eventType="touchUpInside" id="NHS-5I-RCi"/>
+                                    <segue destination="UPu-Kt-4gN" kind="custom" identifier="IntervalsSegue" id="7DP-79-fzv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -110,6 +111,7 @@
         <!--Intervals View Controller-->
         <scene sceneID="K6w-b8-wW9">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qod-4x-BcY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="IntervalsViewController" id="UPu-Kt-4gN" customClass="IntervalsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KM0-AD-vGh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -130,7 +132,6 @@
                                 </state>
                                 <connections>
                                     <action selector="playSound:" destination="UPu-Kt-4gN" eventType="touchUpInside" id="T6m-Nl-Bko"/>
-                                    <action selector="touchUpInside:" destination="UPu-Kt-4gN" eventType="touchUpInside" id="fvd-Hm-OwT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dux-Au-E64">
@@ -141,7 +142,7 @@
                                 </state>
                                 <connections>
                                     <action selector="touchUpInside:" destination="mcb-Oi-S4H" eventType="touchUpInside" id="Bwy-Zm-V3V"/>
-                                    <action selector="touchUpInside:" destination="UPu-Kt-4gN" eventType="touchUpInside" id="OGg-d1-Rmp"/>
+                                    <segue destination="UPu-Kt-4gN" kind="custom" identifier="NextProblemSegue" id="OsB-GT-KAw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SSV-fQ-Pld">
@@ -152,7 +153,7 @@
                                 </state>
                                 <connections>
                                     <action selector="touchUpInside:" destination="mcb-Oi-S4H" eventType="touchUpInside" id="CEk-VP-SYP"/>
-                                    <action selector="touchUpInside:" destination="UPu-Kt-4gN" eventType="touchUpInside" id="uRh-7G-d0I"/>
+                                    <segue destination="UPu-Kt-4gN" kind="custom" identifier="NextProblemSegue" id="lWJ-3L-hqW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iCj-iN-oDV">
@@ -163,7 +164,7 @@
                                 </state>
                                 <connections>
                                     <action selector="touchUpInside:" destination="mcb-Oi-S4H" eventType="touchUpInside" id="4Fu-AK-dZh"/>
-                                    <action selector="touchUpInside:" destination="UPu-Kt-4gN" eventType="touchUpInside" id="hNI-1a-Quk"/>
+                                    <segue destination="UPu-Kt-4gN" kind="custom" identifier="NextProblemSegue" id="Lhf-gh-oco"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4Pe-cs-Kq5">
@@ -174,7 +175,7 @@
                                 </state>
                                 <connections>
                                     <action selector="touchUpInside:" destination="mcb-Oi-S4H" eventType="touchUpInside" id="RYx-eO-HxX"/>
-                                    <action selector="touchUpInside:" destination="UPu-Kt-4gN" eventType="touchUpInside" id="Rlu-SL-gm5"/>
+                                    <segue destination="UPu-Kt-4gN" kind="custom" identifier="NextProblemSegue" id="SE7-Ug-xA7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wk6-ea-Hgf">
@@ -184,8 +185,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="touchUpInside:" destination="UPu-Kt-4gN" eventType="touchUpInside" id="b33-0c-XZ1"/>
                                     <action selector="touchUpInside:" destination="mcb-Oi-S4H" eventType="touchUpInside" id="nuX-KF-Rpo"/>
+                                    <segue destination="UPu-Kt-4gN" kind="custom" identifier="NextProblemSegue" id="ZaF-Gw-lRl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="w7V-Un-B94">
@@ -195,8 +196,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="touchUpInside:" destination="UPu-Kt-4gN" eventType="touchUpInside" id="ehz-CL-af0"/>
                                     <action selector="touchUpInside:" destination="mcb-Oi-S4H" eventType="touchUpInside" id="jJK-ss-WcG"/>
+                                    <segue destination="UPu-Kt-4gN" kind="custom" identifier="NextProblemSegue" id="Izm-X2-ufS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xNZ-d0-wKm">
@@ -207,7 +208,7 @@
                                 </state>
                                 <connections>
                                     <action selector="touchUpInside:" destination="mcb-Oi-S4H" eventType="touchUpInside" id="8RW-U1-hTj"/>
-                                    <action selector="touchUpInside:" destination="UPu-Kt-4gN" eventType="touchUpInside" id="ABx-Wd-kXx"/>
+                                    <segue destination="UPu-Kt-4gN" kind="custom" identifier="NextProblemSegue" id="VhQ-AF-9hK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IqU-kC-T4s">
@@ -218,7 +219,7 @@
                                 </state>
                                 <connections>
                                     <action selector="touchUpInside:" destination="mcb-Oi-S4H" eventType="touchUpInside" id="Hry-sl-SKH"/>
-                                    <action selector="touchUpInside:" destination="UPu-Kt-4gN" eventType="touchUpInside" id="P3O-R6-UXe"/>
+                                    <segue destination="UPu-Kt-4gN" kind="custom" identifier="NextProblemSegue" id="xg2-xI-as2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BSY-3y-d74">
@@ -229,7 +230,7 @@
                                 </state>
                                 <connections>
                                     <action selector="touchUpInside:" destination="mcb-Oi-S4H" eventType="touchUpInside" id="ElP-DU-Saa"/>
-                                    <action selector="touchUpInside:" destination="UPu-Kt-4gN" eventType="touchUpInside" id="evU-MO-w7b"/>
+                                    <segue destination="UPu-Kt-4gN" kind="custom" identifier="NextProblemSegue" id="j4r-FO-7zL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xBd-9t-x61">
@@ -239,8 +240,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="touchUpInside:" destination="UPu-Kt-4gN" eventType="touchUpInside" id="1hN-8H-0KI"/>
                                     <action selector="touchUpInside:" destination="mcb-Oi-S4H" eventType="touchUpInside" id="IqE-SB-07S"/>
+                                    <segue destination="UPu-Kt-4gN" kind="custom" identifier="NextProblemSegue" id="81C-pv-NCb"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#/Total" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ixt-iq-dsg">
@@ -257,7 +258,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="touchUpInside:" destination="UPu-Kt-4gN" eventType="touchUpInside" id="FuZ-Mv-Yca"/>
+                                    <segue destination="oY0-ik-uAY" kind="custom" identifier="BackToMainMenuSegue" id="7A6-Ir-ttn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J0n-Pf-IT9">
@@ -268,8 +269,7 @@
                                 </state>
                                 <connections>
                                     <action selector="touchUpInside:" destination="mcb-Oi-S4H" eventType="touchUpInside" id="Mnz-oa-tk0"/>
-                                    <action selector="touchUpInside:" destination="UPu-Kt-4gN" eventType="touchUpInside" id="Wba-5V-big"/>
-                                    <segue destination="UPu-Kt-4gN" kind="custom" identifier="NextProblemSegue" id="FjL-KG-mRC"/>
+                                    <segue destination="UPu-Kt-4gN" kind="custom" identifier="NextProblemSegue" id="w1Z-en-ckv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -293,7 +293,6 @@
                         <outlet property="scoreLabel" destination="eh3-cx-lBp" id="STt-AC-JcB"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qod-4x-BcY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1296" y="440"/>
         </scene>
@@ -700,4 +699,8 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="7DP-79-fzv"/>
+        <segue reference="7A6-Ir-ttn"/>
+    </inferredMetricsTieBreakers>
 </document>
