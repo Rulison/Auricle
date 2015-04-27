@@ -57,13 +57,13 @@
     if(sender == chordsButton) {
         NSLog(@"Chords");
     }
-    else if (sender == intervalsButton) {
+    /*else if (sender == intervalsButton) {
         NSLog(@"Intervals");
         UIStoryboard *storyboard = self.storyboard;
         IntervalsViewController *lib = [storyboard instantiateViewControllerWithIdentifier:@"IntervalsViewController"];
         [self presentViewController:lib animated:YES completion:nil];
 
-    }
+    }*/
     else if (sender == optionsButton) {
         NSLog(@"Options");
     }
