@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LibraryViewController.h"
+#import "IntervalsViewController.h"
 
 @interface MainMenuViewController : UIViewController
 

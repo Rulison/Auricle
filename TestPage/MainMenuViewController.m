@@ -15,6 +15,12 @@
 
 @implementation MainMenuViewController
 
+@synthesize titleLabel;
+@synthesize chordsButton;
+@synthesize libraryButton;
+@synthesize intervalsButton;
+@synthesize optionsButton;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -33,7 +39,30 @@
     [self.libraryButton setTitle:@"Library" forState: UIControlStateNormal];
     [self.intervalsButton setTitle:@"Intervals" forState: UIControlStateNormal];
     [self.optionsButton setTitle:@"Options" forState: UIControlStateNormal];
+    NSLog(@"DONE");
     //AVAudioPlayer *player;
+}
+
+-(IBAction)touchUpInside:(UIButton*)sender {
+    if(sender == chordsButton) {
+        NSLog(@"Chords");
+    }
+    else if (sender == intervalsButton) {
+        NSLog(@"Intervals");
+        UIStoryboard *storyboard = self.storyboard;
+        IntervalsViewController *lib = [storyboard instantiateViewControllerWithIdentifier:@"IntervalsViewController"];
+        [self presentViewController:lib animated:YES completion:nil];
+
+    }
+    else if (sender == optionsButton) {
+        NSLog(@"Options");
+    }
+    else if (sender == libraryButton) {
+        NSLog(@"Library");
+        /*UIStoryboard *storyboard = self.storyboard;
+        LibraryViewController *lib = [storyboard instantiateViewControllerWithIdentifier:@"LibraryViewController"];
+        [self presentViewController:lib animated:YES completion:nil];*/
+    }
 }
 
 @end
