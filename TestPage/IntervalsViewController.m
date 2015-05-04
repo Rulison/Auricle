@@ -10,7 +10,8 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface IntervalsViewController () {
-    AVAudioPlayer *_audioPlayer;
+    AVQueuePlayer *_audioPlayer;
+    NSUInteger _correctNumHalfSteps;
 }
 
 @end
@@ -46,9 +47,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    NSString *path = [NSString stringWithFormat:@"%@/aMajorScale.mp3", [[NSBundle mainBundle] resourcePath] ];
-    NSURL *soundUrl = [NSURL fileURLWithPath:path];
-    _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
+    NSArray *lowNotes = [NSArray arrayWithObjects: @"A", @"Bb", @"B", @"C", @"Db", @"D", @"Eb", @"E", @"F", @"Gb", @"G", @"Ab", nil];
+    NSUInteger randomIndex = arc4random() % [lowNotes count];
+    NSLog(@"%lu",(unsigned long)randomIndex);
+    NSString *bottomNote = lowNotes[randomIndex];
+    NSUInteger randomNumSteps = arc4random() % 12 + 1;
+    
+    NSUInteger unwrappedTopIndex = randomIndex + randomNumSteps;
+    NSUInteger topIndex = (randomIndex + randomNumSteps) % 12;
+    _correctNumHalfSteps = randomNumSteps;
+    NSLog(@"%lu",(unsigned long)topIndex);
+    NSString *highNote = lowNotes[topIndex];
+    NSString *lowPath = [NSString stringWithFormat:@"%@/low%@.mp3", [[NSBundle mainBundle] resourcePath], bottomNote ];
+    NSString *highPath;
+    if(unwrappedTopIndex == topIndex) {
+        highPath = [NSString stringWithFormat:@"%@/low%@.mp3", [[NSBundle mainBundle] resourcePath], highNote ];
+    }
+    else {
+        highPath = [NSString stringWithFormat:@"%@/high%@.mp3", [[NSBundle mainBundle] resourcePath], highNote ];
+    }
+    NSURL *lowSoundUrl = [NSURL fileURLWithPath:lowPath];
+    NSURL *highSoundUrl = [NSURL fileURLWithPath:highPath];
+    AVPlayerItem *lowItem = [AVPlayerItem playerItemWithURL: lowSoundUrl];
+    AVPlayerItem *highItem = [AVPlayerItem playerItemWithURL: highSoundUrl];
+    _audioPlayer = [AVQueuePlayer queuePlayerWithItems: [NSArray arrayWithObjects:lowItem, highItem, nil]];
+
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,10 +105,17 @@
 
     //AVAudioPlayer *player;
 }
+-(void)stop {
+    [_audioPlayer pause];
+}
 
 -(IBAction)playSound:(id)sender {
     [_audioPlayer play];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(stop) userInfo:nil repeats: NO];
+    [_audioPlayer advanceToNextItem];
     NSTimer *scoreTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(aTime) userInfo:nil repeats: YES];
+    [_audioPlayer play];
+    //[_audioPlayer pause];
 }
 
 -(void)aTime {
@@ -98,7 +129,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"NextProblemSegue"]){
-        [_audioPlayer stop];
+        [_audioPlayer pause];
         if(problemNumber == 10) {
             MainMenuViewController *controller = (MainMenuViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
         }
@@ -111,7 +142,7 @@
         }
     }
     else if([segue.identifier isEqualToString:@"BackToMainMenuSegue"]) {
-        [_audioPlayer stop];
+        [_audioPlayer pause];
         MainMenuViewController *controller = (MainMenuViewController *)segue.destinationViewController;
         
     }
