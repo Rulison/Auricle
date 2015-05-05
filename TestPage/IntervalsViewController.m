@@ -34,6 +34,7 @@
 @synthesize minorThirdButton;
 @synthesize majorThirdButton;
 @synthesize fourthButton;
+@synthesize augmentedFourthButton;
 @synthesize fifthButton;
 @synthesize minorSixthButton;
 @synthesize majorSixthButton;
@@ -43,6 +44,9 @@
 
 @synthesize hasScoreAlreadyBeenSet;
 @synthesize hasNumberAlreadyBeenSet;
+
+@synthesize lowSoundUrl;
+@synthesize highSoundUrl;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -66,12 +70,12 @@
     else {
         highPath = [NSString stringWithFormat:@"%@/high%@.mp3", [[NSBundle mainBundle] resourcePath], highNote ];
     }
-    NSURL *lowSoundUrl = [NSURL fileURLWithPath:lowPath];
-    NSURL *highSoundUrl = [NSURL fileURLWithPath:highPath];
-    AVPlayerItem *lowItem = [AVPlayerItem playerItemWithURL: lowSoundUrl];
-    AVPlayerItem *highItem = [AVPlayerItem playerItemWithURL: highSoundUrl];
-    _audioPlayer = [AVQueuePlayer queuePlayerWithItems: [NSArray arrayWithObjects:lowItem, highItem, nil]];
-
+    lowSoundUrl = [NSURL fileURLWithPath:lowPath];
+    highSoundUrl = [NSURL fileURLWithPath:highPath];
+    NSArray *possibleAnswers = [NSArray arrayWithObjects: @"minorSecond", @"majorSecond", @"minorThird", @"majorThird", @"fourth",@"augmentedFourth", @"fifth", @"minorSixth", @"majorSixth", @"minorSeventh", @"majorSeventh", @"octave", nil];
+    NSLog(@"%lu", (unsigned long)randomNumSteps);
+    correctAnswer = possibleAnswers[randomNumSteps-1];
+    NSLog(correctAnswer);
 
 }
 
@@ -96,25 +100,25 @@
     else {
         self.problemNumberLabel.text = [NSString stringWithFormat:@"%ld/10", problemNumber];
     }
-    
-    //randomly select base note
-    //randomly select interval from base note
-    correctAnswer = @"MinorSecond";
-    
+
     
 
-    //AVAudioPlayer *player;
 }
 -(void)stop {
     [_audioPlayer pause];
 }
 
 -(IBAction)playSound:(id)sender {
+
+    AVPlayerItem *lowItem = [AVPlayerItem playerItemWithURL: lowSoundUrl];
+    AVPlayerItem *highItem = [AVPlayerItem playerItemWithURL: highSoundUrl];
+    NSArray *notes = [NSArray arrayWithObjects:lowItem, highItem, nil];
+    _audioPlayer = [AVQueuePlayer queuePlayerWithItems: notes];
     [_audioPlayer play];
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(stop) userInfo:nil repeats: NO];
-    [_audioPlayer advanceToNextItem];
     NSTimer *scoreTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(aTime) userInfo:nil repeats: YES];
     [_audioPlayer play];
+    [_audioPlayer seekToTime:CMTimeMakeWithSeconds(0, 1)];
     //[_audioPlayer pause];
 }
 
@@ -128,23 +132,64 @@
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"NextProblemSegue"]){
+    if([segue.identifier isEqualToString:@"BackToMainMenuSegue"]) {
         [_audioPlayer pause];
-        if(problemNumber == 10) {
-            MainMenuViewController *controller = (MainMenuViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"MainMenuViewController"];
-        }
-        else {
+        MainMenuViewController *controller = (MainMenuViewController *)segue.destinationViewController;
+        
+    }
+    else {
+        [_audioPlayer pause];
             IntervalsViewController *controller = (IntervalsViewController *)segue.destinationViewController;
             controller.score = score;
             controller.hasScoreAlreadyBeenSet = YES;
             controller.problemNumber = problemNumber + 1;
             controller.hasNumberAlreadyBeenSet = YES;
-        }
-    }
-    else if([segue.identifier isEqualToString:@"BackToMainMenuSegue"]) {
-        [_audioPlayer pause];
-        MainMenuViewController *controller = (MainMenuViewController *)segue.destinationViewController;
         
+    }
+    
+}
+
+-(IBAction)showAnswer:(UIButton*)button {
+    NSLog(correctAnswer);
+    NSLog(button.currentTitle);
+    if([correctAnswer isEqualToString:@"minorSecond"] && button == minorSecondButton) {
+        [button setBackgroundColor:[UIColor greenColor]];
+    }
+    else if([correctAnswer isEqualToString:@"majorSecond"] && button == majorSecondButton) {
+        [button setBackgroundColor:[UIColor greenColor]];
+    }
+    else if([correctAnswer isEqualToString:@"minorThird"] && button == minorThirdButton) {
+        [button setBackgroundColor:[UIColor greenColor]];
+    }
+    else if([correctAnswer isEqualToString:@"majorThird"] && button == majorThirdButton) {
+        [button setBackgroundColor:[UIColor greenColor]];
+    }
+    else if([correctAnswer isEqualToString:@"perfectFourth"] && button == fourthButton) {
+        [button setBackgroundColor:[UIColor greenColor]];
+    }
+    else if([correctAnswer isEqualToString:@"augmentedFourth"] && button == augmentedFourthButton) {
+        [button setBackgroundColor:[UIColor greenColor]];
+    }
+    else if([correctAnswer isEqualToString:@"perfectFifth"] && button == fifthButton) {
+        [button setBackgroundColor:[UIColor greenColor]];
+    }
+    else if([correctAnswer isEqualToString:@"minorSixth"] && button == minorSixthButton) {
+        [button setBackgroundColor:[UIColor greenColor]];
+    }
+    else if([correctAnswer isEqualToString:@"majorSixth"] && button == majorSixthButton) {
+        [button setBackgroundColor:[UIColor greenColor]];
+    }
+    else if([correctAnswer isEqualToString:@"minorSeventh"] && button == minorSeventhButton) {
+        [button setBackgroundColor:[UIColor greenColor]];
+    }
+    else if([correctAnswer isEqualToString:@"majorSeventh"] && button == majorSeventhButton) {
+        [button setBackgroundColor:[UIColor greenColor]];
+    }
+    else if([correctAnswer isEqualToString:@"octave"] && button == octaveButton) {
+        [button setBackgroundColor:[UIColor greenColor]];
+    }
+    else {
+        [button setBackgroundColor:[UIColor redColor]];
     }
 }
 

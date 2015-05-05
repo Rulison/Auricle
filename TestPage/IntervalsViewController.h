@@ -24,6 +24,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *minorThirdButton;
 @property (strong, nonatomic) IBOutlet UIButton *majorThirdButton;
 @property (strong, nonatomic) IBOutlet UIButton *fourthButton;
+@property (strong, nonatomic) IBOutlet UIButton *augmentedFourthButton;
 @property (strong, nonatomic) IBOutlet UIButton *fifthButton;
 @property (strong, nonatomic) IBOutlet UIButton *minorSixthButton;
 @property (strong, nonatomic) IBOutlet UIButton *majorSixthButton;
@@ -40,6 +41,9 @@
 
 @property (nonatomic, assign) bool hasScoreAlreadyBeenSet;
 @property (nonatomic, assign) bool hasNumberAlreadyBeenSet;
+
+@property (strong, nonatomic) NSURL* lowSoundUrl;
+@property (strong, nonatomic) NSURL* highSoundUrl;
 
 @end
 

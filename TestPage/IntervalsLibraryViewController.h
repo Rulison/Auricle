@@ -36,6 +36,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *minorThirdButton;
 @property (strong, nonatomic) IBOutlet UIButton *majorThirdButton;
 @property (strong, nonatomic) IBOutlet UIButton *fourthButton;
+@property (strong, nonatomic) IBOutlet UIButton *augmentedFourthButton;
 @property (strong, nonatomic) IBOutlet UIButton *fifthButton;
 @property (strong, nonatomic) IBOutlet UIButton *minorSixthButton;
 @property (strong, nonatomic) IBOutlet UIButton *majorSixthButton;
@@ -43,7 +44,12 @@
 @property (strong, nonatomic) IBOutlet UIButton *majorSeventhButton;
 @property (strong, nonatomic) IBOutlet UIButton *octaveButton;
 
+@property (strong, nonatomic) IBOutlet UIButton *selectedButton;
+
 @property (strong, nonatomic) id dataObject;
+
+@property (strong, nonatomic) NSArray *notes;
+@property (strong, nonatomic) NSArray *possibleAnswers;
 
 @end
 
