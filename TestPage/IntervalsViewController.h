@@ -32,6 +32,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *majorSeventhButton;
 @property (strong, nonatomic) IBOutlet UIButton *octaveButton;
 
+@property (strong, nonatomic) IBOutlet UIButton *nextButton;
+@property (strong, nonatomic) IBOutlet UIButton *finishButton;
+
 @property (strong, nonatomic) id dataObject;
 
 @property (nonatomic, assign) NSInteger score;
@@ -41,9 +44,12 @@
 
 @property (nonatomic, assign) bool hasScoreAlreadyBeenSet;
 @property (nonatomic, assign) bool hasNumberAlreadyBeenSet;
+@property (nonatomic, assign) bool hasAlreadyAnswered;
 
 @property (strong, nonatomic) NSURL* lowSoundUrl;
 @property (strong, nonatomic) NSURL* highSoundUrl;
+
+@property (strong, nonatomic) NSTimer* scoreTimer;
 
 @end
 

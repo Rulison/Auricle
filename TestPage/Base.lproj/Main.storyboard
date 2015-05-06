@@ -43,39 +43,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wVv-ZT-oKP">
-                                <rect key="frame" x="35" y="218" width="120" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Chords">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="touchUpInside:" destination="oY0-ik-uAY" eventType="touchUpInside" id="Wp2-Mx-qyI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Y2u-6v-zOw">
-                                <rect key="frame" x="35" y="292" width="120" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Library">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="touchUpInside:" destination="oY0-ik-uAY" eventType="touchUpInside" id="nxy-X9-NRo"/>
-                                    <segue destination="hDa-70-DDW" kind="modal" identifier="Library" id="2YX-5k-Yky"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CFG-OD-pnf">
-                                <rect key="frame" x="163" y="292" width="121" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Options">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="touchUpInside:" destination="oY0-ik-uAY" eventType="touchUpInside" id="Kui-sa-WT9"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="we0-pt-iof">
-                                <rect key="frame" x="162" y="218" width="122" height="30"/>
+                                <rect key="frame" x="99" y="221" width="122" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Intervals">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -92,15 +61,24 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Y2u-6v-zOw">
+                                <rect key="frame" x="100" y="319" width="120" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Library">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchUpInside:" destination="oY0-ik-uAY" eventType="touchUpInside" id="nxy-X9-NRo"/>
+                                    <segue destination="mcb-Oi-S4H" kind="custom" id="jCa-pR-fAe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="U0b-uC-wAx"/>
                     <connections>
-                        <outlet property="chordsButton" destination="wVv-ZT-oKP" id="6mQ-SZ-I1F"/>
                         <outlet property="intervalsButton" destination="we0-pt-iof" id="zpr-qM-c3J"/>
                         <outlet property="libraryButton" destination="Y2u-6v-zOw" id="gdb-1u-mj2"/>
-                        <outlet property="optionsButton" destination="CFG-OD-pnf" id="xna-2C-oBf"/>
                         <outlet property="titleLabel" destination="K0M-fb-KFu" id="wSQ-38-gBB"/>
                     </connections>
                 </viewController>
@@ -297,6 +275,26 @@
                                     <action selector="showAnswer:" destination="UPu-Kt-4gN" eventType="touchUpInside" id="ih2-KQ-o26"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fll-sH-c0l">
+                                <rect key="frame" x="227" y="213" width="41" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Finish">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Mam-yL-m2G" kind="custom" id="Hhn-Jf-YYs"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ur8-S8-tag">
+                                <rect key="frame" x="59" y="213" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="UPu-Kt-4gN" kind="custom" id="Eqj-t6-Jgc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -304,6 +302,7 @@
                         <outlet property="augmentedFourthButton" destination="8JP-AI-qAd" id="WHQ-Hw-xPO"/>
                         <outlet property="backButton" destination="6Ql-Sp-V8e" id="XXH-DA-6VN"/>
                         <outlet property="fifthButton" destination="xNZ-d0-wKm" id="cmB-vR-If1"/>
+                        <outlet property="finishButton" destination="fll-sH-c0l" id="c0k-MI-NAI"/>
                         <outlet property="fourthButton" destination="iCj-iN-oDV" id="z53-yd-aLb"/>
                         <outlet property="majorSecondButton" destination="J0n-Pf-IT9" id="TLb-vZ-rsa"/>
                         <outlet property="majorSeventhButton" destination="IqU-kC-T4s" id="H3L-RJ-RHv"/>
@@ -313,6 +312,7 @@
                         <outlet property="minorSeventhButton" destination="BSY-3y-d74" id="ugX-Ui-H61"/>
                         <outlet property="minorSixthButton" destination="w7V-Un-B94" id="3Wn-Hd-rOz"/>
                         <outlet property="minorThirdButton" destination="dux-Au-E64" id="chU-lb-Sb7"/>
+                        <outlet property="nextButton" destination="Ur8-S8-tag" id="pFK-2F-OXp"/>
                         <outlet property="octaveButton" destination="xBd-9t-x61" id="CeC-WK-pdS"/>
                         <outlet property="playButton" destination="5cz-FV-tJH" id="ECK-zt-sMl"/>
                         <outlet property="problemNumberLabel" destination="Ixt-iq-dsg" id="Ynm-qW-T1X"/>
@@ -382,7 +382,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hDa-70-DDW" kind="custom" id="o5M-4G-G3H"/>
+                                    <segue destination="oY0-ik-uAY" kind="custom" id="rtO-FA-DDm"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intervals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2cA-FE-QXf">
@@ -666,56 +666,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xyv-39-alV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="953" y="-847"/>
-        </scene>
-        <!--Library View Controller-->
-        <scene sceneID="eut-r1-dym">
-            <objects>
-                <viewController storyboardIdentifier="LibraryViewController" id="hDa-70-DDW" customClass="LibraryViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="S3P-Ro-BP9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Library" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kal-GY-Ezt">
-                                <rect key="frame" x="120" y="113" width="53" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EVK-T2-3GU">
-                                <rect key="frame" x="117" y="195" width="58" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Intervals">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="touchUpInside:" destination="hDa-70-DDW" eventType="touchUpInside" id="Xtr-Z6-eDA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gbP-WE-na7">
-                                <rect key="frame" x="16" y="20" width="35" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="touchUpInside:" destination="hDa-70-DDW" eventType="touchUpInside" id="294-x8-dD9"/>
-                                    <segue destination="oY0-ik-uAY" kind="custom" identifier="Main" id="JJ7-76-Hnn"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="cYc-BC-LaW"/>
-                    <connections>
-                        <outlet property="backButton" destination="gbP-WE-na7" id="hwO-R1-C3w"/>
-                        <outlet property="intervalsButton" destination="EVK-T2-3GU" id="XKa-5T-8UI"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gOy-lm-p4N" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="677" y="-213"/>
+            <point key="canvasLocation" x="860" y="-262"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="3GU-QQ-JyJ">
@@ -738,7 +689,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="7A6-Ir-ttn"/>
-        <segue reference="o5M-4G-G3H"/>
+        <segue reference="rtO-FA-DDm"/>
+        <segue reference="7DP-79-fzv"/>
     </inferredMetricsTieBreakers>
 </document>

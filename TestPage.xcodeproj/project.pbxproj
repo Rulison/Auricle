@@ -45,7 +45,6 @@
 		04A8EAF91AE6E6620047D8D2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A8EAF71AE6E6620047D8D2 /* LaunchScreen.xib */; };
 		04A8EB051AE6E6620047D8D2 /* TestPageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A8EB041AE6E6620047D8D2 /* TestPageTests.m */; };
 		04A8EB101AE6F2B70047D8D2 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A8EB0F1AE6F2B70047D8D2 /* MainMenuViewController.m */; };
-		04A8EB121AEC53F40047D8D2 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A8EB111AEC53F40047D8D2 /* LibraryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,8 +107,6 @@
 		04A8EB041AE6E6620047D8D2 /* TestPageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestPageTests.m; sourceTree = "<group>"; };
 		04A8EB0E1AE6F28B0047D8D2 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		04A8EB0F1AE6F2B70047D8D2 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
-		04A8EB111AEC53F40047D8D2 /* LibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryViewController.m; sourceTree = "<group>"; };
-		04A8EB131AEC54250047D8D2 /* LibraryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibraryViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,8 +191,6 @@
 				04A8EAED1AE6E6620047D8D2 /* DataViewController.m */,
 				04A8EAEF1AE6E6620047D8D2 /* ModelController.h */,
 				04A8EAF01AE6E6620047D8D2 /* ModelController.m */,
-				04A8EB131AEC54250047D8D2 /* LibraryViewController.h */,
-				04A8EB111AEC53F40047D8D2 /* LibraryViewController.m */,
 				04A8EB0E1AE6F28B0047D8D2 /* MainMenuViewController.h */,
 				04A8EB0F1AE6F2B70047D8D2 /* MainMenuViewController.m */,
 				04620BF61AEC6F57000D70D2 /* IntervalsLibraryViewController.h */,
@@ -362,7 +357,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				04A8EB101AE6F2B70047D8D2 /* MainMenuViewController.m in Sources */,
-				04A8EB121AEC53F40047D8D2 /* LibraryViewController.m in Sources */,
 				04620BFA1AEC7524000D70D2 /* IntervalsViewController.m in Sources */,
 				04A8EAEE1AE6E6620047D8D2 /* DataViewController.m in Sources */,
 				04A8EAE81AE6E6620047D8D2 /* AppDelegate.m in Sources */,

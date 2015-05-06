@@ -42,11 +42,18 @@
 @synthesize majorSeventhButton;
 @synthesize octaveButton;
 
+@synthesize nextButton;
+@synthesize finishButton;
+
 @synthesize hasScoreAlreadyBeenSet;
 @synthesize hasNumberAlreadyBeenSet;
 
 @synthesize lowSoundUrl;
 @synthesize highSoundUrl;
+
+@synthesize scoreTimer;
+
+@synthesize hasAlreadyAnswered;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -72,10 +79,11 @@
     }
     lowSoundUrl = [NSURL fileURLWithPath:lowPath];
     highSoundUrl = [NSURL fileURLWithPath:highPath];
-    NSArray *possibleAnswers = [NSArray arrayWithObjects: @"minorSecond", @"majorSecond", @"minorThird", @"majorThird", @"fourth",@"augmentedFourth", @"fifth", @"minorSixth", @"majorSixth", @"minorSeventh", @"majorSeventh", @"octave", nil];
+    NSArray *possibleAnswers = [NSArray arrayWithObjects: @"minorSecond", @"majorSecond", @"minorThird", @"majorThird", @"perfectFourth",@"augmentedFourth", @"perfectFifth", @"minorSixth", @"majorSixth", @"minorSeventh", @"majorSeventh", @"octave", nil];
     NSLog(@"%lu", (unsigned long)randomNumSteps);
     correctAnswer = possibleAnswers[randomNumSteps-1];
     NSLog(correctAnswer);
+    hasAlreadyAnswered = false;
 
 }
 
@@ -109,14 +117,16 @@
 }
 
 -(IBAction)playSound:(id)sender {
-
+    
     AVPlayerItem *lowItem = [AVPlayerItem playerItemWithURL: lowSoundUrl];
     AVPlayerItem *highItem = [AVPlayerItem playerItemWithURL: highSoundUrl];
     NSArray *notes = [NSArray arrayWithObjects:lowItem, highItem, nil];
     _audioPlayer = [AVQueuePlayer queuePlayerWithItems: notes];
     [_audioPlayer play];
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(stop) userInfo:nil repeats: NO];
-    NSTimer *scoreTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(aTime) userInfo:nil repeats: YES];
+    if(scoreTimer == nil) {
+        scoreTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(aTime) userInfo:nil repeats: YES];
+    }
     [_audioPlayer play];
     [_audioPlayer seekToTime:CMTimeMakeWithSeconds(0, 1)];
     //[_audioPlayer pause];
@@ -150,58 +160,64 @@
 }
 
 -(IBAction)showAnswer:(UIButton*)button {
+    if(hasAlreadyAnswered) {
+        return;
+    }
+    [scoreTimer invalidate];
+    [_audioPlayer pause];
     NSLog(correctAnswer);
     NSLog(button.currentTitle);
-    if([correctAnswer isEqualToString:@"minorSecond"] && button == minorSecondButton) {
-        [button setBackgroundColor:[UIColor greenColor]];
+
+    [button setBackgroundColor:[UIColor redColor]];
+    if([correctAnswer isEqualToString:@"minorSecond"]) {
+        [minorSecondButton setBackgroundColor:[UIColor greenColor]];
     }
-    else if([correctAnswer isEqualToString:@"majorSecond"] && button == majorSecondButton) {
-        [button setBackgroundColor:[UIColor greenColor]];
+    else if([correctAnswer isEqualToString:@"majorSecond"]) {
+        [majorSecondButton setBackgroundColor:[UIColor greenColor]];
     }
-    else if([correctAnswer isEqualToString:@"minorThird"] && button == minorThirdButton) {
-        [button setBackgroundColor:[UIColor greenColor]];
+    else if([correctAnswer isEqualToString:@"minorThird"]) {
+        [minorThirdButton setBackgroundColor:[UIColor greenColor]];
     }
-    else if([correctAnswer isEqualToString:@"majorThird"] && button == majorThirdButton) {
-        [button setBackgroundColor:[UIColor greenColor]];
+    else if([correctAnswer isEqualToString:@"majorThird"]) {
+        [majorThirdButton setBackgroundColor:[UIColor greenColor]];
     }
-    else if([correctAnswer isEqualToString:@"perfectFourth"] && button == fourthButton) {
-        [button setBackgroundColor:[UIColor greenColor]];
+    else if([correctAnswer isEqualToString:@"perfectFourth"]) {
+        [fourthButton setBackgroundColor:[UIColor greenColor]];
     }
-    else if([correctAnswer isEqualToString:@"augmentedFourth"] && button == augmentedFourthButton) {
-        [button setBackgroundColor:[UIColor greenColor]];
+    else if([correctAnswer isEqualToString:@"augmentedFourth"]) {
+        [augmentedFourthButton setBackgroundColor:[UIColor greenColor]];
     }
-    else if([correctAnswer isEqualToString:@"perfectFifth"] && button == fifthButton) {
-        [button setBackgroundColor:[UIColor greenColor]];
+    else if([correctAnswer isEqualToString:@"perfectFifth"]) {
+        [fifthButton setBackgroundColor:[UIColor greenColor]];
     }
-    else if([correctAnswer isEqualToString:@"minorSixth"] && button == minorSixthButton) {
-        [button setBackgroundColor:[UIColor greenColor]];
+    else if([correctAnswer isEqualToString:@"minorSixth"]) {
+        [minorSixthButton setBackgroundColor:[UIColor greenColor]];
     }
-    else if([correctAnswer isEqualToString:@"majorSixth"] && button == majorSixthButton) {
-        [button setBackgroundColor:[UIColor greenColor]];
+    else if([correctAnswer isEqualToString:@"majorSixth"]) {
+        [majorSixthButton setBackgroundColor:[UIColor greenColor]];
     }
-    else if([correctAnswer isEqualToString:@"minorSeventh"] && button == minorSeventhButton) {
-        [button setBackgroundColor:[UIColor greenColor]];
+    else if([correctAnswer isEqualToString:@"minorSeventh"]) {
+        [minorSeventhButton setBackgroundColor:[UIColor greenColor]];
     }
-    else if([correctAnswer isEqualToString:@"majorSeventh"] && button == majorSeventhButton) {
-        [button setBackgroundColor:[UIColor greenColor]];
+    else if([correctAnswer isEqualToString:@"majorSeventh"]) {
+        [majorSeventhButton setBackgroundColor:[UIColor greenColor]];
     }
-    else if([correctAnswer isEqualToString:@"octave"] && button == octaveButton) {
-        [button setBackgroundColor:[UIColor greenColor]];
+    else if([correctAnswer isEqualToString:@"octave"]) {
+        [octaveButton setBackgroundColor:[UIColor greenColor]];
+    }
+    if(button.backgroundColor == [UIColor greenColor]) {
+        score += 500;
+    }
+    self.scoreLabel.text = [NSString stringWithFormat:@"%ld", score];
+    if(problemNumber != 10) {
+        nextButton.hidden = false;
     }
     else {
-        [button setBackgroundColor:[UIColor redColor]];
+        finishButton.hidden = false;
     }
+    hasAlreadyAnswered = true;
 }
 
--(void)choseCorrectly:(UIButton*) button {
-    NSTimer *nextProblemTimer = [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(loadNextProblem) userInfo:nil repeats: NO];
-}
--(void)choseWrongly:(UIButton*) button {
-    score = 0;
-    self.scoreLabel.text = @"0";
-    NSTimer *nextProblemTimer = [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(loadNextProblem) userInfo:nil repeats: NO];
-
-}
 
 -(void)loadNextProblem {
     UIStoryboard *storyboard = self.storyboard;
