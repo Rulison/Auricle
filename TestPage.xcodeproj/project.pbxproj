@@ -45,6 +45,11 @@
 		04A8EAF91AE6E6620047D8D2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A8EAF71AE6E6620047D8D2 /* LaunchScreen.xib */; };
 		04A8EB051AE6E6620047D8D2 /* TestPageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A8EB041AE6E6620047D8D2 /* TestPageTests.m */; };
 		04A8EB101AE6F2B70047D8D2 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A8EB0F1AE6F2B70047D8D2 /* MainMenuViewController.m */; };
+		177A9AEA1AFB44250012EABF /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 177A9AE91AFB44250012EABF /* background.jpg */; };
+		177A9AEC1AFB44830012EABF /* background2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 177A9AEB1AFB44830012EABF /* background2.jpg */; };
+		177A9AEE1AFB45D50012EABF /* musicnote (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 177A9AED1AFB45D50012EABF /* musicnote (1).png */; };
+		177A9AF11AFB46A00012EABF /* HighScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 177A9AF01AFB46A00012EABF /* HighScoreController.m */; };
+		177A9AF31AFB49A90012EABF /* trophy.png in Resources */ = {isa = PBXBuildFile; fileRef = 177A9AF21AFB49A90012EABF /* trophy.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +112,12 @@
 		04A8EB041AE6E6620047D8D2 /* TestPageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestPageTests.m; sourceTree = "<group>"; };
 		04A8EB0E1AE6F28B0047D8D2 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		04A8EB0F1AE6F2B70047D8D2 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
+		177A9AE91AFB44250012EABF /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		177A9AEB1AFB44830012EABF /* background2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background2.jpg; sourceTree = "<group>"; };
+		177A9AED1AFB45D50012EABF /* musicnote (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "musicnote (1).png"; sourceTree = "<group>"; };
+		177A9AEF1AFB46930012EABF /* HighScoreController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HighScoreController.h; sourceTree = "<group>"; };
+		177A9AF01AFB46A00012EABF /* HighScoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreController.m; sourceTree = "<group>"; };
+		177A9AF21AFB49A90012EABF /* trophy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trophy.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +207,8 @@
 				04620BF61AEC6F57000D70D2 /* IntervalsLibraryViewController.h */,
 				04620BF71AEC6F75000D70D2 /* IntervalsLibraryViewController.m */,
 				04A8EAF21AE6E6620047D8D2 /* Main.storyboard */,
+				177A9AEF1AFB46930012EABF /* HighScoreController.h */,
+				177A9AF01AFB46A00012EABF /* HighScoreController.m */,
 				04620BFB1AEC7531000D70D2 /* IntervalsViewController.h */,
 				04620BF91AEC7524000D70D2 /* IntervalsViewController.m */,
 				04A8EAF51AE6E6620047D8D2 /* Images.xcassets */,
@@ -208,6 +221,10 @@
 		04A8EAE21AE6E6620047D8D2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				177A9AF21AFB49A90012EABF /* trophy.png */,
+				177A9AED1AFB45D50012EABF /* musicnote (1).png */,
+				177A9AEB1AFB44830012EABF /* background2.jpg */,
+				177A9AE91AFB44250012EABF /* background.jpg */,
 				04A8EAE31AE6E6620047D8D2 /* Info.plist */,
 				04A8EAE41AE6E6620047D8D2 /* main.m */,
 			);
@@ -314,6 +331,7 @@
 				04A8EAF41AE6E6620047D8D2 /* Main.storyboard in Resources */,
 				04335A301AF2065A00E4C6B6 /* highGb.mp3 in Resources */,
 				04335A291AF2065A00E4C6B6 /* highC.mp3 in Resources */,
+				177A9AF31AFB49A90012EABF /* trophy.png in Resources */,
 				04335A321AF2065A00E4C6B6 /* lowAb.mp3 in Resources */,
 				04335A391AF2065A00E4C6B6 /* lowEb.mp3 in Resources */,
 				04335A381AF2065A00E4C6B6 /* lowE.mp3 in Resources */,
@@ -324,14 +342,17 @@
 				04A8EAF91AE6E6620047D8D2 /* LaunchScreen.xib in Resources */,
 				04335A2D1AF2065A00E4C6B6 /* highEb.mp3 in Resources */,
 				04335A351AF2065A00E4C6B6 /* lowC.mp3 in Resources */,
+				177A9AEA1AFB44250012EABF /* background.jpg in Resources */,
 				04335A361AF2065A00E4C6B6 /* lowD.mp3 in Resources */,
 				04335A2F1AF2065A00E4C6B6 /* highG.mp3 in Resources */,
+				177A9AEE1AFB45D50012EABF /* musicnote (1).png in Resources */,
 				04335A2E1AF2065A00E4C6B6 /* highF.mp3 in Resources */,
 				04335A2B1AF2065A00E4C6B6 /* highDb.mp3 in Resources */,
 				04335A3E1AF2CE9300E4C6B6 /* lowA.mp3 in Resources */,
 				04335A3A1AF2065A00E4C6B6 /* lowF.mp3 in Resources */,
 				04A8EAF61AE6E6620047D8D2 /* Images.xcassets in Resources */,
 				04335A3B1AF2065A00E4C6B6 /* lowG.mp3 in Resources */,
+				177A9AEC1AFB44830012EABF /* background2.jpg in Resources */,
 				04335A281AF2065A00E4C6B6 /* highBb.mp3 in Resources */,
 				04335A3C1AF2065A00E4C6B6 /* lowGb.mp3 in Resources */,
 				04620BFD1AEDB00F000D70D2 /* aMajorScale.mp3 in Resources */,
@@ -361,6 +382,7 @@
 				04A8EAEE1AE6E6620047D8D2 /* DataViewController.m in Sources */,
 				04A8EAE81AE6E6620047D8D2 /* AppDelegate.m in Sources */,
 				04A8EAF11AE6E6620047D8D2 /* ModelController.m in Sources */,
+				177A9AF11AFB46A00012EABF /* HighScoreController.m in Sources */,
 				04A8EAE51AE6E6620047D8D2 /* main.m in Sources */,
 				04620BF81AEC6F75000D70D2 /* IntervalsLibraryViewController.m in Sources */,
 				04A8EAEB1AE6E6620047D8D2 /* RootViewController.m in Sources */,

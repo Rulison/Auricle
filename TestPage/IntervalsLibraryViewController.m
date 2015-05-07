@@ -40,6 +40,7 @@
 @synthesize minorThirdButton;
 @synthesize majorThirdButton;
 @synthesize fourthButton;
+@synthesize augmentedFourthButton;
 @synthesize fifthButton;
 @synthesize minorSixthButton;
 @synthesize majorSixthButton;
@@ -55,9 +56,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _buttons = [NSArray arrayWithObjects:aButton, aSharpButton, bButton, cButton, cSharpButton, dButton, dSharpButton, eButton, fButton, fSharpButton, gButton, gSharpButton, nil];
-    _intervals = [NSArray arrayWithObjects:minorSecondButton, majorSecondButton, minorThirdButton, majorThirdButton, fourthButton, fifthButton, minorSixthButton, majorSixthButton, minorSeventhButton, majorSeventhButton, octaveButton, nil];
+    _intervals = [NSArray arrayWithObjects:minorSecondButton, majorSecondButton, minorThirdButton, majorThirdButton, fourthButton, augmentedFourthButton, fifthButton, minorSixthButton, majorSixthButton, minorSeventhButton, majorSeventhButton, octaveButton, nil];
     notes = [NSArray arrayWithObjects: @"A", @"Bb", @"B", @"C", @"Db", @"D", @"Eb", @"E", @"F", @"Gb", @"G", @"Ab", nil];
     possibleAnswers = [NSArray arrayWithObjects: @"Minor 2nd", @"Major 2nd", @"Minor 3rd", @"Major 3rd", @"Perfect 4th",@"Augmented 4th", @"Perfect 5th", @"Minor 6th", @"Major 6th", @"Minor 7th", @"Major 7th", @"Octave", nil];
+    for (id object in _intervals) {
+        UIButton *button = (UIButton *) object;
+        button.enabled = NO;
+    }
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -72,18 +77,22 @@
 }
 
 -(IBAction)selectRootNote:(UIButton*)button {
-    for (id object in _buttons) {
-        [object setBackgroundColor: [UIColor whiteColor]];
+    for (id object in _intervals) {
+        UIButton *button = (UIButton *) object;
+        button.enabled = YES;
     }
-    [button setBackgroundColor:[UIColor grayColor]];
+    for (id object in _buttons) {
+        [object setBackgroundColor: nil];
+    }
+    [button setBackgroundColor:[UIColor redColor]];
     selectedButton = button;
     NSLog(@"root %@", button.currentTitle);
 }
 -(IBAction)chooseInterval:(UIButton*)button {
     for (id object in _intervals) {
-        [object setBackgroundColor: [UIColor whiteColor]];
+        [object setBackgroundColor: nil];
     }
-    [button setBackgroundColor:[UIColor grayColor]];
+    [button setBackgroundColor:[UIColor redColor]];
     //playNote(selectedButton.currentTitle, @"low");
     NSString *noteName = selectedButton.currentTitle;
     if([selectedButton.currentTitle isEqualToString:@"A#/Bb"]) {

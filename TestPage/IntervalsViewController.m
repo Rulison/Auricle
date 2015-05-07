@@ -8,6 +8,7 @@
 
 #import "IntervalsViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "HighScoreController.h"
 
 @interface IntervalsViewController () {
     AVQueuePlayer *_audioPlayer;
@@ -144,8 +145,8 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"BackToMainMenuSegue"]) {
         [_audioPlayer pause];
-        MainMenuViewController *controller = (MainMenuViewController *)segue.destinationViewController;
-        
+        HighScoreController *controller = (HighScoreController *)segue.destinationViewController;
+        controller.score = score;
     }
     else {
         [_audioPlayer pause];

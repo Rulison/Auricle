@@ -7,21 +7,21 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>E3738A05-FC41-48D3-A380-AE7C8C791DDB</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>TestPage</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>C9C6B87E774B463C470739A182A4DE64E7ACD0E7</key>
-		<string>https://github.com/Rulison/Auricle/</string>
+		<string>https://github.com/Rulison/Auricle.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>TestPage.xcodeproj/project.xcworkspace</string>
+	<string>TestPage.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>C9C6B87E774B463C470739A182A4DE64E7ACD0E7</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/Rulison/Auricle/</string>
+	<string>https://github.com/Rulison/Auricle.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
